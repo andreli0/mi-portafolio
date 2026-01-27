@@ -1,135 +1,274 @@
+<!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>perfil Andrés Hidalgo </title>
-    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
-    <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
+    <title>Mi Perfil Retro</title>
+    <!-- NES.css CDN -->
+    <link href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css" rel="stylesheet" />
+    <!-- Google Fonts para texto retro -->
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet" />
     <style>
-        html,
-        body,
-        pre,
-        code,
-        kbd,
-        samp {
-            font-family: "Press Start 2P", system-ui;
-        }
-
-        body,
-        html {
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            height: 100%;
-        }
-
-        .container {
-            width: 100vw;
-            height: 100vh;
+        body {
+            background-color: #212529;
+            font-family: 'Press Start 2P', cursive;
+            padding: 2rem;
+            min-height: 100vh;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
+            justify-content: center;
             position: relative;
-            background-image: url('Assets/background-texture.jpg');
-            image-orientation: center;
-            background-repeat: repeat;
-            background-size: auto;
+            overflow: hidden;
         }
-
-        .layer {
-            image-rendering: pixelated;
-            /* Standard property */
-            image-rendering: crisp-edges;
-            /* Alternative for some browsers */
-            -webkit-image-rendering: pixelated;
-            /* For older WebKit browsers */
+        
+        .parallax-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            overflow: hidden;
+        }
+        
+        .parallax-layer {
             position: absolute;
-            width: auto;
-            height: 90vh;
-            /* ajusta el valor según lo necesites */
-            aspect-ratio: 4 / 3;
-            /* 320 / 240 = 4 / 3 */
-            background-size: contain;
+            width: 100%;
+            height: 100%;
             background-repeat: repeat-x;
+            background-position: center;
+            image-rendering: pixelated;
+            background-size: cover;
+            will-change: transform;
         }
-
-        .sky {
-            background-image: url('Assets/Layers/sky.png');
+        
+        .snow-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
         }
-
-        .clouds {
-            background-image: url('Assets/Layers/far-clouds.png');
-        }
-
-        .near-clouds {
-            background-image: url('Assets/Layers/near-clouds.png');
-        }
-
-        .far-mountains {
-            background-image: url('Assets/Layers/far-mountains.png');
-        }
-
-        .mountains {
-            background-image: url('Assets/Layers/mountains.png');
-        }
-
-        .trees {
-            background-image: url('Assets/Layers/trees.png');
-        }
-
-        .content {
+        
+        .snowflake {
             position: absolute;
+            top: -10px;
+            color: white;
+            font-size: 1em;
+            animation: fall linear infinite;
         }
-
-        .bg-wood {
-            background-color: burlywood;
+        
+        @keyframes fall {
+            from {
+                transform: translateY(-100vh) rotate(0deg);
+            }
+            to {
+                transform: translateY(100vh) rotate(360deg);
+            }
         }
+        
+        .profile-container {
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+        }
+        
+        .avatar {
+            width: 256px;
+            height: 256px;
+            margin-bottom: 2rem;
+            image-rendering: pixelated;
+        }
+        
+        .name {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            color: #fff;
+        }
+        
+        .bio {
+            margin-bottom: 3rem;
+            color: #93a5ff;
+            font-size: 0.8rem;
+            line-height: 1.5;
+        }
+        
+        .links-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .nes-btn {
+            width: 100%;
+            padding: 1rem;
+            font-size: 0.9rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .footer {
+            margin-top: 3rem;
+            color: #7cb7ff;
+            font-size: 0.7rem;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            
+            .parallax-layer {
+                background-size: auto 100vh;
+                background-attachment: fixed;
+            }
+            
+            .name {
+                font-size: 1rem;
+            }
+            
+            .bio {
+                font-size: 0.7rem;
+            }
+            
+            .nes-btn {
+                font-size: 0.8rem;
+                padding: 0.8rem;
+            }
+            
+            .profile-container {
+                backdrop-filter: blur(2px);
+                background: rgba(33, 37, 41, 0.7);
+                padding: 1.5rem;
 
-        .bg-title {
-            background-color: rgb(165, 109, 34);
+                border: 2px solid rgba(255, 255, 255, 0.1);
+            }
         }
     </style>
 </head>
-
 <body>
-    <div class="container">
-        <div class="layer sky"></div>
-        <div class="layer clouds"></div>
-        <div class="layer near-clouds"></div>
-        <div class="layer far-mountains"></div>
-        <div class="layer mountains"></div>
-        <div class="layer trees"></div>
-        <div class="content">
-            <div class="nes-container with-title bg-wood">
-                <p class="title">Bienvenido!</p>
-                <p>Hola!, soy un desarollador blah b lah</p>
-            </div>
-            <div class="nes-container with-title bg-wood">
-                <p class="title">Mi experiencia</p>
-                <div class="lists">
-                    <ul class="nes-list is-disc">
-                        <li>Good morning.</li>
-                        <li>Thou hast had a good night's sleep, I hope.</li>
-                        <li>Thou hast had a good afternoon</li>
-                        <li>Good night.</li>
-                    </ul>
-                </div>
-            </div>
+    <div class="parallax-container">
+        <div class="parallax-layer" data-layer="1" style="background-image: url('assets/img/1.png');"></div>
+        <div class="parallax-layer" data-layer="2" style="background-image: url('assets/img/2.png');"></div>
+        <div class="parallax-layer" data-layer="3" style="background-image: url('assets/img/3.png');"></div>
+        <div class="parallax-layer" data-layer="4" style="background-image: url('assets/img/4.png');"></div>
+        <div class="parallax-layer" data-layer="5" style="background-image: url('assets/img/5.png');"></div>
+        <div class="parallax-layer" data-layer="6" style="background-image: url('assets/img/6.png');"></div>
+        <div class="parallax-layer" data-layer="7" style="background-image: url('assets/img/7.png');"></div>
+        <div class="parallax-layer" data-layer="8" style="background-image: url('assets/img/8.png');"></div>
+        <div class="parallax-layer" data-layer="9" style="background-image: url('assets/img/9.png');"></div>
+        <div class="parallax-layer" data-layer="10" style="background-image: url('assets/img/10.png');"></div>
+        <div class="parallax-layer" data-layer="11" style="background-image: url('assets/img/11.png');"></div>
+        <div class="parallax-layer" data-layer="12" style="background-image: url('assets/img/12.png');"></div>
+        <div class="parallax-layer" data-layer="13" style="background-image: url('assets/img/13.png');"></div>
+        <div class="parallax-layer" data-layer="14" style="background-image: url('assets/img/14.png');"></div>
+        <div class="parallax-layer" data-layer="15" style="background-image: url('assets/img/15.png');"></div>
+        <div class="parallax-layer" data-layer="16" style="background-image: url('assets/img/16.png');"></div>
+    </div>
+    
+    <div class="profile-container">
 
-            <div class="nes-container with-title bg-wood">
-                <p class="title">Mis redes!</p>
-                <a href="https://github.com/andreli0" target="_blank">
-                    <i class="nes-icon github is-large"></i>
-                </a>
-                <a href="http://www.linkedin.com/in/andres-hidalgo-3941782a1" target="_blank">
-                    <i class="nes-icon linkedin is-large"></i>
-                </a>
-            </div>
+        <img src="https://media.licdn.com/dms/image/v2/D5603AQFRs6PZY3XmLQ/profile-displayphoto-crop_800_800/B56ZfyZ7N3GoAI-/0/1752118573719?e=1770854400&v=beta&t=Ke9JR9GtLiKi2Nko5JPfz0JPQZApEbIaUhui5-1_OXQ" alt="Avatar" class="avatar nes-avatar is-large">
+        
 
+        <h1 class="name">Andrés Hidalgo</h1>
+        
+
+        <p class="bio">
+            Desarrollador de software<br/>
+        </p>
+        
+
+        <div class="links-container">
+            <a href="https://github.com/andreli0" class="nes-btn is-primary" target="_blank">
+                <i class="nes-icon github is-small"></i>
+                GitHub
+            </a>
+            
+            <a href="https://www.linkedin.com/in/andres-hidalgo-3941782a1" class="nes-btn is-success" target="_blank">
+                <i class="nes-icon linkedin is-small"></i>
+                LinkedIn
+            </a>
+            
+            <!-- <a href="#" class="nes-btn is-warning" target="_blank">
+                <i class="nes-icon star is-small"></i>
+                Proyecto Personal
+            </a>
+            
+            <a href="#" class="nes-btn is-error" target="_blank">
+                <i class="nes-icon heart is-small"></i>
+                Portafolio
+            </a>
+            
+            <a href="#" class="nes-btn is-primary" target="_blank">
+                <i class="nes-icon trophy is-small"></i>
+                Blog Técnico
+            </a>
+            
+            <a href="#" class="nes-btn" target="_blank">
+                <i class="nes-icon coin is-small"></i>
+                Contacto
+            </a> -->
+        </div>
+        
+        <div class="footer">
+            <p>© 2026 - Hecho con ❤️ y píxeles</p>
         </div>
     </div>
-
+    <div class="snow-container" id="snow"></div>
+    
+    <script>
+        const snowContainer = document.getElementById('snow');
+        const snowflakes = ['❄', '❅', '❆', '✻', '✼', '❉'];
+        const maxSnowflakes = 100;
+        
+        function createSnowflake() {
+            const snowflake = document.createElement('div');
+            snowflake.className = 'snowflake';
+            snowflake.textContent = snowflakes[Math.floor(Math.random() * snowflakes.length)];
+            snowflake.style.left = Math.random() * 100 + '%';
+            snowflake.style.animationDuration = Math.random() * 5 + 5 + 's';
+            snowflake.style.opacity = Math.random() * 0.6 + 0.4;
+            snowflake.style.fontSize = Math.random() * 10 + 10 + 'px';
+            
+            snowContainer.appendChild(snowflake);
+            
+            setTimeout(() => {
+                snowflake.remove();
+            }, 10000);
+        }
+        
+        setInterval(createSnowflake, 100);
+        
+        for (let i = 0; i < maxSnowflakes / 2; i++) {
+            setTimeout(createSnowflake, i * 50);
+        }
+        
+        // Parallax effect - disabled on mobile for better performance
+        if (window.innerWidth > 768) {
+            document.addEventListener('mousemove', (e) => {
+                const layers = document.querySelectorAll('.parallax-layer');
+                const x = e.clientX / window.innerWidth;
+                const y = e.clientY / window.innerHeight;
+                
+                requestAnimationFrame(() => {
+                    layers.forEach((layer) => {
+                        const layerNum = parseInt(layer.dataset.layer);
+                        const moveX = (x - 0.5) * 20 * (layerNum / 16);
+                        const moveY = (y - 0.5) * 20 * (layerNum / 16);
+                        
+                        layer.style.transform = `translate(${moveX}px, ${moveY}px)`;
+                    });
+                });
+            });
+        }
+    </script>
 </body>
-
 </html>
