@@ -38,3 +38,7 @@ mi-portafolio/
 ## 📝 Licencia
 
 MIT License - Siéntete libre de usar este código en tus propios proyectos.
+
+## 🎨 Créditos
+
+- **Fondo Pixel Art Winter Forest**: [edermunizz.itch.io](https://edermunizz.itch.io/free-pixel-art-winter-forest)
