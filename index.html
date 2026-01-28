@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,7 +22,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .parallax-container {
             position: fixed;
             top: 0;
@@ -31,7 +32,7 @@
             z-index: -2;
             overflow: hidden;
         }
-        
+
         .parallax-layer {
             position: absolute;
             width: 100%;
@@ -42,7 +43,7 @@
             background-size: cover;
             will-change: transform;
         }
-        
+
         .snow-container {
             position: fixed;
             top: 0;
@@ -52,7 +53,7 @@
             pointer-events: none;
             z-index: -1;
         }
-        
+
         .snowflake {
             position: absolute;
             top: -10px;
@@ -60,49 +61,58 @@
             font-size: 1em;
             animation: fall linear infinite;
         }
-        
+
         @keyframes fall {
             from {
                 transform: translateY(-100vh) rotate(0deg);
             }
+
             to {
                 transform: translateY(100vh) rotate(360deg);
             }
         }
-        
+
         .profile-container {
             text-align: center;
             max-width: 600px;
             width: 100%;
         }
-        
+
         .avatar {
-            width: 256px;
-            height: 256px;
+            width: 200px;
+            height: 200px;
             margin-bottom: 2rem;
             image-rendering: pixelated;
+            object-fit: cover;
+            object-position: 12% 12%;
+            border: 4px solid #000;
+            box-shadow: 
+                0 0 0 2px #fff,
+                0 0 0 4px #000,
+                0 0 0 6px #fff,
+                0 0 0 8px #000;
         }
-        
+
         .name {
             margin-bottom: 1rem;
             font-size: 1.2rem;
             color: #fff;
         }
-        
+
         .bio {
             margin-bottom: 3rem;
             color: #93a5ff;
             font-size: 0.8rem;
             line-height: 1.5;
         }
-        
+
         .links-container {
             display: flex;
             flex-direction: column;
             gap: 1rem;
             margin-bottom: 2rem;
         }
-        
+
         .nes-btn {
             width: 100%;
             padding: 1rem;
@@ -113,36 +123,36 @@
             justify-content: center;
             gap: 0.5rem;
         }
-        
+
         .footer {
             margin-top: 3rem;
             color: #7cb7ff;
             font-size: 0.7rem;
         }
-        
+
         @media (max-width: 768px) {
             body {
                 padding: 1rem;
             }
-            
+
             .parallax-layer {
                 background-size: auto 100vh;
                 background-attachment: fixed;
             }
-            
+
             .name {
                 font-size: 1rem;
             }
-            
+
             .bio {
                 font-size: 0.7rem;
             }
-            
+
             .nes-btn {
                 font-size: 0.8rem;
                 padding: 0.8rem;
             }
-            
+
             .profile-container {
                 backdrop-filter: blur(2px);
                 background: rgba(33, 37, 41, 0.7);
@@ -153,6 +163,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="parallax-container">
         <div class="parallax-layer" data-layer="1" style="background-image: url('assets/img/1.png');"></div>
@@ -173,39 +184,42 @@
         <div class="parallax-layer" data-layer="16" style="background-image: url('assets/img/16.png');"></div>
     </div>
     <div class="snow-container" id="snow"></div>
-    
+
     <!-- Loading Screen -->
-    <div id="loading-screen" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #212529; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 9999;">
+    <div id="loading-screen"
+        style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #212529; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 9999;">
         <div class="nes-container with-title is-centered" style="background-color: #212529; border-color: #fff;">
             <p class="title">Cargando...</p>
-            <progress class="nes-progress is-pattern" value="0" max="100" id="loading-progress" style="width: 300px;"></progress>
+            <progress class="nes-progress is-pattern" value="0" max="100" id="loading-progress"
+                style="width: 300px;"></progress>
         </div>
     </div>
 
     <div class="profile-container" id="main-content" style="display: none;">
 
-        <img src="https://media.licdn.com/dms/image/v2/D5603AQFRs6PZY3XmLQ/profile-displayphoto-crop_800_800/B56ZfyZ7N3GoAI-/0/1752118573719?e=1770854400&v=beta&t=Ke9JR9GtLiKi2Nko5JPfz0JPQZApEbIaUhui5-1_OXQ" alt="Avatar" class="avatar nes-avatar is-large">
-        
+        <img src="https://i.pinimg.com/736x/f6/cf/0b/f6cf0bdbe11adff5e260111edca998f9.jpg" alt="Avatar"
+            class="avatar nes-avatar ">
+
 
         <h1 class="name">Andrés Hidalgo</h1>
-        
+
 
         <p class="bio">
-            Desarrollador de software<br/>
+            Desarrollador de software<br />
         </p>
-        
+
 
         <div class="links-container">
             <a href="https://github.com/andreli0" class="nes-btn is-primary" target="_blank">
-                <i class="nes-icon github is-small"></i>
+                <i class="nes-icon github is-medium"></i>
                 GitHub
             </a>
-            
+
             <a href="https://www.linkedin.com/in/andres-hidalgo-3941782a1" class="nes-btn is-success" target="_blank">
-                <i class="nes-icon linkedin is-small"></i>
+                <i class="nes-icon linkedin is-medium"></i>
                 LinkedIn
             </a>
-            
+
             <!-- <a href="#" class="nes-btn is-warning" target="_blank">
                 <i class="nes-icon star is-small"></i>
                 Proyecto Personal
@@ -226,13 +240,13 @@
                 Contacto
             </a> -->
         </div>
-        
+
         <div class="footer">
-            <p>© 2026 - Hecho con ❤️ y píxeles</p>
+            <p>© 2026 - Hecho con <i class="nes-icon heart is-small"></i> y píxeles</p>
         </div>
     </div>
     <div class="snow-container" id="snow"></div>
-    
+
     <script>
         const loadingScreen = document.getElementById('loading-screen');
         const loadingProgress = document.getElementById('loading-progress');
@@ -241,12 +255,12 @@
         const snowflakes = ['❄', '❅', '❆', '✻', '✼', '❉'];
         const maxSnowflakes = 100;
         let loadingProgressValue = 0;
-        
+
         function updateLoadingProgress(value) {
             loadingProgressValue = value;
             loadingProgress.value = value;
         }
-        
+
         function createSnowflake() {
             const snowflake = document.createElement('div');
             snowflake.className = 'snowflake';
@@ -255,82 +269,79 @@
             snowflake.style.animationDuration = Math.random() * 5 + 5 + 's';
             snowflake.style.opacity = Math.random() * 0.6 + 0.4;
             snowflake.style.fontSize = Math.random() * 10 + 10 + 'px';
-            
+
             snowContainer.appendChild(snowflake);
-            
+
             setTimeout(() => {
                 snowflake.remove();
             }, 10000);
         }
-        
+
         // Initialize snow animation with loading progress
         function initializeSnowAnimation() {
-            // Simulate loading progress
-            const loadingInterval = setInterval(() => {
-                updateLoadingProgress(loadingProgressValue + 10);
-                
-                if (loadingProgressValue >= 90) {
-                    clearInterval(loadingInterval);
-                    updateLoadingProgress(100);
-                    
-                    // Hide loading screen and show main content
-                    setTimeout(() => {
-                        loadingScreen.style.display = 'none';
-                        mainContent.style.display = 'block';
-                        
-                        // Start the continuous snowflake creation
-                        setInterval(createSnowflake, 100);
-                    }, 300);
-                }
-            }, 100);
-            
-            // Create initial snowflakes during loading
+            // Create initial snowflakes immediately
             for (let i = 0; i < maxSnowflakes / 2; i++) {
                 setTimeout(() => {
                     createSnowflake();
-                    // Update progress during snowflake creation
                     if (loadingProgressValue < 80) {
                         updateLoadingProgress(loadingProgressValue + 2);
                     }
-                }, i * 50);
+                }, i * 20);
             }
+
+            // Simulate loading progress
+            const loadingInterval = setInterval(() => {
+                updateLoadingProgress(loadingProgressValue + 10);
+
+                if (loadingProgressValue >= 90) {
+                    clearInterval(loadingInterval);
+                    updateLoadingProgress(100);
+
+                    // Hide loading screen and show main content immediately
+                    loadingScreen.style.display = 'none';
+                    mainContent.style.display = 'block';
+
+                    // Start the continuous snowflake creation immediately
+                    setInterval(createSnowflake, 100);
+                }
+            }, 100);
         }
-        
+
         // Start the loading process
         initializeSnowAnimation();
-        
+
         // Parallax effect - disabled on mobile for better performance
         if (window.innerWidth > 768) {
             document.addEventListener('mousemove', (e) => {
                 const layers = document.querySelectorAll('.parallax-layer');
                 const x = e.clientX / window.innerWidth;
                 const y = e.clientY / window.innerHeight;
-                
+
                 requestAnimationFrame(() => {
                     layers.forEach((layer) => {
                         const layerNum = parseInt(layer.dataset.layer);
                         const moveX = (x - 0.5) * 20 * (layerNum / 16);
                         const moveY = (y - 0.5) * 20 * (layerNum / 16);
-                        
+
                         layer.style.transform = `translate(${moveX}px, ${moveY}px)`;
                     });
                 });
             });
         }
-        
+
         // Parallax effect - disabled on mobile for better performance
         if (window.innerWidth > 768) {
             document.addEventListener('mousemove', (e) => {
                 const layers = document.querySelectorAll('.parallax-layer');
                 const x = e.clientX / window.innerWidth;
                 const y = e.clientY / window.innerHeight;
-                
+
                 requestAnimationFrame(() => {
                     layers.forEach((layer) => {
                         const layerNum = parseInt(layer.dataset.layer);
                         const moveX = (x - 0.5) * 20 * (layerNum / 16);
                         const moveY = (y - 0.5) * 20 * (layerNum / 16);
-                        
+
                         layer.style.transform = `translate(${moveX}px, ${moveY}px)`;
                     });
                 });
@@ -338,4 +349,5 @@
         }
     </script>
 </body>
+
 </html>
