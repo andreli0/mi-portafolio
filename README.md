@@ -1,44 +1,36 @@
-# Mi Perfil Retro
+# Retro Profile
 
-Página personal estilo linktree con diseño retro pixelado, creada para compartir enlaces importantes de forma visual y atractiva.
+A linktree-style personal page with retro pixelated design, engineered for efficient sharing of important links through a visually appealing interface.
 
-## 🎮 Características
+## Features
 
-- Diseño retro pixelado inspirado en videojuegos clásicos
-- Totalmente responsive para móviles y desktop
-- Estilo NES.css para auténtica estética retro
-- Fuente Press Start 2P para ese toque nostálgico
+- Retro pixelated design inspired by classic video game aesthetics
+- Fully responsive implementation for mobile and desktop viewports
+- NES.css framework integration for authentic retro styling
+- Press Start 2P font implementation for nostalgic typography
 
-## 🛠️ Tecnologías
+## Technology Stack
 
-- **HTML5** - Estructura semántica
-- **NES.css** - Framework CSS estilo retro
-- **Press Start 2P** - Fuente pixelada de Google Fonts
+- **HTML5** - Semantic markup structure
+- **NES.css** - Retro-styled CSS framework
+- **Press Start 2P** - Google Fonts pixelated typeface
 
-## 📁 Estructura del Proyecto
+## Implementation
 
-```
-mi-portafolio/
-├── index.html          # Página principal
-└── README.md           # Este archivo
-```
+1. Clone repository: `git clone <url>`
+2. Open `index.html` in web browser
+3. Configure links and content according to requirements
 
-## 🚀 Cómo Usar
+## Configuration
 
-1. Clona este repositorio: `git clone <url>`
-2. Abre `index.html` en tu navegador
-3. Personaliza los enlaces y contenido según tus necesidades
+- **Avatar**: Update image URL at `index.html:96`
+- **Links**: Modify href attributes in buttons starting from `index.html:108`
+- **Styling**: Adjust CSS properties for visual customization
 
-## 🎨 Personalización
+## License
 
-- **Avatar**: Reemplaza la URL de la imagen en `index.html:96`
-- **Enlaces**: Modifica los href en los botones a partir de `index.html:108`
-- **Colores**: Ajusta los estilos CSS para personalizar la apariencia
+MIT License - Permission granted for code reuse and modification in derivative projects.
 
-## 📝 Licencia
+## Credits
 
-MIT License - Siéntete libre de usar este código en tus propios proyectos.
-
-## 🎨 Créditos
-
-- **Fondo Pixel Art Winter Forest**: [edermunizz.itch.io](https://edermunizz.itch.io/free-pixel-art-winter-forest)
+- **Pixel Art Winter Forest Background**: [edermunizz.itch.io](https://edermunizz.itch.io/free-pixel-art-winter-forest)
